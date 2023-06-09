@@ -1,12 +1,15 @@
-import "./Person.css"
+import "./Person.css";
 
 const person = (props) => {
   return (
     <div className="person">
       <p>
-        This is {props.name}, who is {props.age} years old.
+        This is "{props.name}", who is {props.age} years old.
       </p>
-      <input type="textInput" />
+      <input
+        type="textInput"
+        onChange={(event) => props.onChange(event, props.idx)}
+      />
     </div>
   );
 };

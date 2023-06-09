@@ -12,23 +12,39 @@ function App() {
   const [personList, setPersonList] = useState(persons);
   const [isDataShowingEnabled, setIsDataShowingEnabled] = useState(false);
 
-  const toggleDataShowing = () =>
+  const toggleDataShowingHandler = () =>
     setIsDataShowingEnabled(!isDataShowingEnabled);
+
+  const changeNameHandler = (event, idx) => {
+    const newName = event.target.value;
+    const newPersons = [...persons];
+
+    newPersons[idx].name = newName;
+    setPersonList(newPersons);
+  };
 
   return (
     <div className="App">
       <h1>This is HomePage</h1>
       <p>This app is working properly!</p>
+
       <button
         onClick={() => {
-          toggleDataShowing();
+          toggleDataShowingHandler();
         }}
       >
         Toggle Showing Data
       </button>
+
       {isDataShowingEnabled &&
-        personList.map((person) => (
-          <Person key={person.id} name={person.name} age={person.age} />
+        personList.map((person, idx) => (
+          <Person
+            key={idx}
+            idx={idx}
+            name={person.name}
+            age={person.age}
+            onChange={changeNameHandler}
+          />
         ))}
     </div>
   );
