@@ -10,17 +10,26 @@ function App() {
     { id: "fjdfj", name: "Oh My God", age: "15" },
   ];
   const [personList, setPersonList] = useState(persons);
+  const [isDataShowingEnabled, setIsDataShowingEnabled] = useState(false);
+
+  const toggleDataShowing = () =>
+    setIsDataShowingEnabled(!isDataShowingEnabled);
 
   return (
     <div className="App">
       <h1>This is HomePage</h1>
       <p>This app is working properly!</p>
-      <button onClick={() => {}}>Toggle Showing Data</button>
-      {console.log("persons: " + persons)}
-      {personList.map((person) => (
-        <Person key={person.id} name={person.name} age={person.age} />
-      ))}
-      <p>experiments</p>
+      <button
+        onClick={() => {
+          toggleDataShowing();
+        }}
+      >
+        Toggle Showing Data
+      </button>
+      {isDataShowingEnabled &&
+        personList.map((person) => (
+          <Person key={person.id} name={person.name} age={person.age} />
+        ))}
     </div>
   );
 }
