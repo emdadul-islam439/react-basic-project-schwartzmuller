@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Basic React Project to practice Basic Things
+
+In this Project, I will try to implement different react component, styling and some other basic things.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
